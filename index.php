@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medpriority ADMIN</title>
-    <link rel="stylesheet" href="Css/estilos2.css">
+    <link rel="stylesheet" href="Css/styles.css">
 </head>
 
 <body>
@@ -333,6 +333,6 @@
     </section>
 
 </body>
-<script src="Js/script13.js"></script>
-<script src="Js/sqli.js"></script>
+<script src="Js/script.js"></script>
+<script src="Js/sql.js"></script>
 </html>

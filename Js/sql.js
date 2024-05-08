@@ -22,7 +22,7 @@
       };
       
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", "php/new.php", true);
+      xhr.open("POST", "php/new_medic.php", true);
       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       xhr.onreadystatechange = function() {
           if (xhr.readyState === 4 && xhr.status === 200) {
