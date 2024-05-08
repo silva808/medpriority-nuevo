@@ -208,7 +208,7 @@
                                             <td> <?php echo $fila['edad'];?></td>
                                             <td> <?php echo $fila['telefono'];?></td>
                                             <td><button data-modal-target="#modal_<?php echo $fila['id_usuario'];?>">Detalles</button></td>
-                                            <td><button id="delete" data-user-id="<?php echo $fila['id_usuario'];?>">Eliminar</button></td>
+                                            <td><button id="delete" data-user-id="<?php echo $fila['id_usuario'];?>" data-role='3'>Eliminar</button></td>
                                         </tr>
 
                                         <?php
@@ -281,7 +281,7 @@
 
                     <!-- ------------PANEL PACIENTES--------------- -->
                     <div id="panel_pac" class="contain_main">
-                        <div class="cont_titulo">Panel pacientes</div>                      
+                        <div class="cont_titulo">Panel pacientes</div>
                             <div class="cont_general_all">
                             <div class="patient-main">
                         <table>
@@ -314,7 +314,7 @@
                                     <td><?php echo $row['edad'];?></td>
                                     <td><?php echo $row['genero'];?></td>
                                     <td><button data-modal-target="#modal_<?php echo $row['id_usuario'];?>">Detalles</button></td>
-                                    <td><button id="delete" data-user-id="<?php echo $row['id_usuario'];?>">Eliminar</button></td>
+                                    <td><button id="delete" data-user-id="<?php echo $row['id_usuario'];?>" data-role='2'>Eliminar</button></td>
                                 </tr>
                                     
                                 <?php

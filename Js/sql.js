@@ -82,11 +82,16 @@
   deleteButtons.forEach(button => {
       button.addEventListener('click', function() {
           const userId = this.dataset.userId;
-          console.log("chaooo yes "+ userId);
+          const userRole = button.getAttribute('data-role');
+
+          console.log("chaooo "+ userId);
+
+          console.log("holaaaa "+ userRole);
           // Send AJAX request to delete_user.php
 
           const chao = {
-            userId : userId
+            userId : userId,
+            userRole: userRole
           }
           const xhr = new XMLHttpRequest();
           xhr.open('POST', 'php/delete.php', true);
