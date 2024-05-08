@@ -9,6 +9,68 @@
 </head>
 
 <body>
+<!-- -------------------------------MODAL------------------------------------------ -->
+
+<?php
+    require_once 'php/connection.php';
+
+    $bruh = "SELECT * FROM usuario WHERE id_rol='3' OR id_rol='2'";   //jiji
+    $q = mysqli_query( $mysqli, $bruh );
+        if(mysqli_num_rows($q)>0){
+            while($ff =mysqli_fetch_assoc($q)){
+                $modalId = 'modal_' . $ff['id_usuario'];
+                $identi = $ff['id_usuario'];
+
+                // --------------------------------------
+?>
+
+<div class="modal" id="<?php echo $modalId?>">
+    <div class="modal-header">
+        <span><?php echo htmlspecialchars($ff['nombre'])?></span>
+        <span><?php echo htmlspecialchars($identi)?></span>
+        <button id=chao data-close-button class="close-button">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+        <div class="edit-modal">Tipo de Documento
+            <input type="text" required name=m_id_type value="<?php echo htmlspecialchars($ff['tipo_documento'])?>">
+        </div>
+        <div class="edit-modal">Numero de Documento
+            <input type="text" disabled required name=m_id value="<?php echo htmlspecialchars($ff['id_usuario'])?>">
+        </div>
+        <div class="edit-modal">Nombre
+            <input type="text" required name=m_name value="<?php echo htmlspecialchars($ff['nombre'])?>">
+        </div>
+        <div class="edit-modal">Edad
+            <input type="text" required name=m_age value="<?php echo htmlspecialchars($ff['edad'])?>">
+        </div>
+        <div class="edit-modal">Sexo
+            <input type="text" required name=m_sexmoneyfeelingsdie value="<?php echo htmlspecialchars($ff['genero'])?>">
+        </div>
+        <div class="edit-modal">Direccion
+            <input type="text" required name=m_address value="<?php echo htmlspecialchars($ff['direccion'])?>">
+        </div>
+        <div class="edit-modal">Telefono
+            <input type="text" required name=m_pickupyophonebaby value="<?php echo htmlspecialchars($ff['telefono'])?>">
+        </div>
+        <div class="edit-modal">Correo Electronico
+            <input type="text" required name=m_email value="<?php echo htmlspecialchars($ff['correo'])?>">
+        </div>
+        <div class="edit-modal">Tipo de Afiliacion
+            <input type="text" required name=m_afi value="<?php echo htmlspecialchars($ff['tipo_afiliacion'])?>">
+        </div>
+        <div class="modal-savebutton">
+            <button class="save-button" id="sage" data-modal-id="<?php echo $modalId;?>">Aplicar cambios</button>
+        </div>
+    </div>
+    
+</div>
+<?php
+            }
+        }
+?>
+<div id="overlay"></div>
+
     <section class="general_todo">
         <div class="conheader">  <!-- contenedor header o barra principal -->
 
@@ -46,7 +108,6 @@
                             <h4>Inicio</h4>
                         </div>
                     </a>
-
                 </div>
 
 
@@ -61,7 +122,7 @@
                 </div>
                 <div class="inicio">
                     <a href="#reg_med">
-                        <div class="con_imagen" id="icono"> <img src="imagenes/alarma.png" alt=""></div>
+                        <div class="con_imagen" id="icono"> <img src="imagenes/resume.png" alt=""></div>
                     </a>
                     <a href="#reg_med" class="inicio">
                         <div class="con_opcion">
@@ -72,7 +133,7 @@
 
                 <div class="inicio">
                     <a href="#panel_med">
-                        <div class="con_imagen" id="icono"> <img src="imagenes/alarma.png" alt=""></div>
+                        <div class="con_imagen" id="icono"> <img src="imagenes/customer.png" alt=""></div>
                     </a>
                     <a href="#panel_med" class="inicio">
                         <div class="con_opcion">
@@ -103,7 +164,7 @@
 
                 <div class="inicio">
                     <a href="#panel_pac">
-                        <div class="con_imagen" id="icono"> <img src="imagenes/historiaclinica.png" alt=""></div>
+                        <div class="con_imagen" id="icono"> <img src="imagenes/user_panel.png" alt=""></div>
                     </a>
                     <a href="#panel_pac" class="inicio">
                         <div class="con_opcion">
@@ -120,7 +181,9 @@
             <main>
 
                     <div id="inicio" class="contain_main">
-                        <div class="cont_titulo">Home</div>
+                        <div class="cont_titulo">
+                            <p>Home</p>
+                        </div>
                         
                         <div class="cont_general_all">
                             since youve been like this.
@@ -179,7 +242,7 @@
                         </div>
                         <div class="cont_general_all">
 
-                            <div class="panel-main" id="contain_tablas">
+                            <div class="panel-main" id="contain_tablas"> 
                                 <table>
                                     <thead>
                                     <tr>
@@ -224,7 +287,9 @@
 
                     <!-- --------------REGISTRO PACIENTES-------------- -->
                     <div id="reg_pac" class="contain_main">
-                        <div class="cont_titulo">Registrar paciente</div>
+                        <div class="cont_titulo">
+                            <p>Registrar paciente</p>
+                        </div>
                             <div class="cont_general_all">
 
                                     <div class="pat-survey-container">
@@ -281,7 +346,9 @@
 
                     <!-- ------------PANEL PACIENTES--------------- -->
                     <div id="panel_pac" class="contain_main">
-                        <div class="cont_titulo">Panel pacientes</div>
+                        <div class="cont_titulo">
+                            <p>Panel pacientes</p>
+                        </div>
                             <div class="cont_general_all">
                             <div class="patient-main">
                         <table>

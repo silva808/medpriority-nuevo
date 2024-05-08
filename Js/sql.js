@@ -117,3 +117,77 @@
           xhr.send(JSON.stringify(chao));
       });
   });
+
+  // --------------------------------------- MODAL ------------------------------
+
+  const openModalButton  = document.querySelectorAll('[data-modal-target]')
+  const closeModalButton  = document.querySelectorAll('[data-close-button]')
+  const overlay = document.getElementById('overlay')
+
+  openModalButton.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector(button.dataset.modalTarget)
+      openModal(modal)
+      console.log("uwuwuwu");
+    })
+  })
+
+  // overlay.addEventListener('click', () => {
+  //   const modals = document.querySelectorAll('.modal.active')
+  //   modals.forEach(modal => {
+  //     closeModal(modal)
+  //   })
+  // })
+
+  // ↑↑↑↑↑↑↑↑↑↑
+  // when click on overlay (background) it closes the modal
+
+  closeModalButton.forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal')
+      closeModal(modal)
+    })
+  })
+
+  function openModal(modal) {
+    modal.classList.add('active')
+    overlay.classList.add('active')
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('active')
+    overlay.classList.remove('active')
+  }
+
+// -----------------------UPDATE USERS WHEN CLICK ON BUTTON-------------------------
+
+// Iterate over all buttons with id starting with "sage"
+
+const valorant = document.querySelectorAll('[id^="sage"]');
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+// Attach click event listener to each button
+valorant.forEach(button => {
+    button.addEventListener("click", function(){
+        // Get the modal id associated with this button
+        console.log("sage");
+        const modalId = this.getAttribute('data-modal-id');
+        
+        // Find all input fields within the modal
+        const modal = document.getElementById(modalId);
+        const inputs = modal.querySelectorAll('input');
+
+        // Prepare data object to send via AJAX
+        const data = {};
+        inputs.forEach(input => {
+            data[input.name] = input.value;
+        });
+
+        // Send AJAX request to update user data
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "php/update.php", true);
+        console.log(data);
+        alert('Data Updated');
+        xhr.send(JSON.stringify(data));
+    });
+});
